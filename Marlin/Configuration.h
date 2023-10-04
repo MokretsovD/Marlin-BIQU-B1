@@ -96,7 +96,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4
 #endif
 
 /**
@@ -107,7 +107,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 1
+#define SERIAL_PORT 0
 
 /**
  * Serial Port Baud Rate
@@ -605,9 +605,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  18.03
-    #define DEFAULT_Ki   1.05
-    #define DEFAULT_Kd  77.35
+    #define DEFAULT_Kp 30.56 // 18.03
+    #define DEFAULT_Ki 2.76 // 1.05
+    #define DEFAULT_Kd 84.54 // 77.35
   #endif
 #endif // PIDTEMP
 
@@ -1195,7 +1195,10 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 24, -37, -1.5 }
+
+// define NOZZLE_TO_PROBE_OFFSET { 24, -37, -1.5 }
+
+#define NOZZLE_TO_PROBE_OFFSET { 24, -47, -3.10 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1576,10 +1579,10 @@
 /**
  * Auto-leveling needs preheating
  */
-//#define PREHEAT_BEFORE_LEVELING
+#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
-  #define LEVELING_BED_TEMP     50
+  #define LEVELING_NOZZLE_TEMP 0 //120   // (°C) Only applies to E0 at this time
+  #define LEVELING_BED_TEMP    70
 #endif
 
 /**
